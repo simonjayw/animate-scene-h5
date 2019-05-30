@@ -1,37 +1,35 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 const PATHS = {
-    public: path.join(__dirname, './public'),
-    src: path.join(__dirname, './src'),
-    dist: path.join(__dirname, './dist'),
+    public: path.join(__dirname, '../public'),
+    src: path.join(__dirname, '../src'),
+    dist: path.join(__dirname, '../dist'),
 }
 
 module.exports = {
     entry: {
-        app: [
-            path.join(PATHS.src, 'index'),
-        ],
-        // vendor: ['react', 'react-dom', 'react-router-dom'],
+        app: path.join(PATHS.src, 'index'),
     },
     output: {
         filename: '[name]-[hash:8].js',
-        // publicPath: PATHS.public,
         path: PATHS.dist,
     },
-    optimization: {
-        runtimeChunk: 'single',
-        splitChunks: {
-            cacheGroups: {
-                // 将第三方模块提取出来
-                vendors: {
-                    test: /node_modules/,
-                    name: 'vendors',
-                    enforce: true,
-                    chunks: 'initial',
-                },
-            },
-        },
-    },
+    // optimization: {
+    //     runtimeChunk: 'single',
+    //     splitChunks: {
+    //         cacheGroups: {
+    //             // 将第三方模块提取出来
+    //             vendors: {
+    //                 test: /node_modules/,
+    //                 name: 'vendors',
+    //                 enforce: true,
+    //                 chunks: 'initial',
+    //             },
+    //         },
+    //     },
+    // },
     module: {
         rules: [
             {
@@ -42,10 +40,10 @@ module.exports = {
                 ],
             },
             {
-                test: /\.sass$/,
+                test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'postcss-loader',
                     'sass-loader',
@@ -72,5 +70,13 @@ module.exports = {
         },
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Demo',
+            template: path.join(PATHS.public, 'index.html'),
+            // favicon: path.join(PATHS.public, 'favicon.ico'),
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name]-[hash:8].css',
+        }),
     ],
 }
