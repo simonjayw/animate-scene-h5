@@ -10,9 +10,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Demo</title>
+    <title><%= htmlWebpackPlugin.options.title%></title>
 
-    <link rel="stylesheet" href="./index.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> -->
+    <!-- <link rel="stylesheet" href="./index.css"> -->
 </head>
 <body>
     <div
@@ -77,38 +78,6 @@
         ></div>
     </div>
 
-    <script type="text/javascript" src="./lib/js/skrollr.min.js"></script>
-
-    <script>
-        window.onload = function () {
-            var s = skrollr.init({
-                smoothScrolling: true,
-                // 定义常量
-                // constants: {
-                //     part1: 100,
-                // }
-                // render: function (data) {
-                //     var curTop = data.curTop
-                //     var direction = data.direction
-                //     if (curTop === 1000) {
-                //         if (direction === 'down') {
-                //             var part_1 = document.querySelector('#part_1')
-                //             var partEnd = document.querySelector('#part_1 .part-end')
-    
-                //             if (!partEnd) {
-                //                 partEnd = document.createElement('div')
-                //                 partEnd.className = 'part-end partEnd'
-                //                 part_1.appendChild(partEnd)
-                //             }
-                //         }
-                //     }
-                // }
-            });
-        }
-
-        // document.body.addEventListener('touchmove', function (e) {
-        //     e.preventDefault(); 
-        // }, { passive: false });
-    </script>
+    <script type="text/javascript" src="./static/skrollr.min.js"></script>
 </body>
 </html>
