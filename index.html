@@ -12,22 +12,99 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Demo</title>
 
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> -->
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
+    <div
+        class="base-background"
+    >
+    </div>
     <div id="part_1">
         <div class="part-start partStart"></div>
-        <img class="bg2 sjZoomInLarge" src="http://file.wangsijie.top/temp/animated/part1-bg2.png" alt="">
-        <img class="bg1 sjZoomInLarge" src="http://file.wangsijie.top/temp/animated/part1-bg1.png" alt="">
-        <img class="light sjZoomInLarge" src="http://file.wangsijie.top/temp/animated/part1-light.png" alt="">
-        <img class="place sjZoomInDown" src="http://file.wangsijie.top/temp/animated/part1-place.png" alt="">
-        <img class="leaf sjZoomInLarge" src="http://file.wangsijie.top/temp/animated/part1-leaf.png" alt="">
-        <img class="hero sjZoomInLarge" src="http://file.wangsijie.top/temp/animated/part1-hero.png" alt="">
-        <div class="text sjZoomInUp">
+        <img
+            data-50="transform: scale3d(1, 1, 1)"
+            data-1000="transform: scale3d(2, 2, 2)"
+            class="bg2"
+            src="http://file.wangsijie.top/temp/animated/part1-bg2.png"
+            alt=""
+        >
+        <img
+            data-50="transform: scale3d(1, 1, 1)"
+            data-1000="transform: scale3d(2, 2, 2)"
+            class="bg1"
+            src="http://file.wangsijie.top/temp/animated/part1-bg1.png"
+            alt=""
+        >
+        <img
+            data-50="transform: scale3d(1, 1, 1)"
+            data-1000="transform: scale3d(2, 2, 2)"
+            class="light"
+            src="http://file.wangsijie.top/temp/animated/part1-light.png"
+            alt=""
+        >
+        <img
+            data-50="transform: scale3d(1, 1, 1) translateY(0px)"
+            data-1000="transform: scale3d(2, 2, 2) translateY(260px)"
+            class="place"
+            src="http://file.wangsijie.top/temp/animated/part1-place.png"
+            alt=""
+        >
+        <img
+            data-0="transform: scale3d(1, 1, 1)"
+            data-500="transform: scale3d(2, 2, 2)"
+            class="leaf"
+            src="http://file.wangsijie.top/temp/animated/part1-leaf.png"
+            alt=""
+        >
+        <img
+            data-50="transform: scale3d(1, 1, 1)"
+            data-1000="transform: scale3d(2, 2, 2)"
+            class="hero"
+            src="http://file.wangsijie.top/temp/animated/part1-hero.png"
+            alt=""
+        >
+        <div
+            data-50="transform: scale3d(1, 1, 1)  translateY(0px)"
+            data-1000="transform: scale3d(2, 2, 2)  translateY(-500px)"
+            class="text"
+        >
             <img src="http://file.wangsijie.top/temp/animated/part1-text.png" alt="">
         </div>
-        <div class="part-end partEnd"></div>
+        <div
+            data-900="transform: scale3d(0.05, 0.05, 0.05);opacity: 0;border-radius: 100%;"
+            data-1100="transform: scale3d(1, 1, 1);border-radius: 0;opacity: 1;"
+            class="part-end"
+        ></div>
     </div>
+
+    <script type="text/javascript" src="./lib/js/skrollr.min.js"></script>
+
+    <script>
+        window.onload = function () {
+            var s = skrollr.init({
+                smoothScrolling: true,
+                // 定义常量
+                // constants: {
+                //     part1: 100,
+                // }
+                // render: function (data) {
+                //     var curTop = data.curTop
+                //     var direction = data.direction
+                //     if (curTop === 1000) {
+                //         if (direction === 'down') {
+                //             var part_1 = document.querySelector('#part_1')
+                //             var partEnd = document.querySelector('#part_1 .part-end')
+    
+                //             if (!partEnd) {
+                //                 partEnd = document.createElement('div')
+                //                 partEnd.className = 'part-end partEnd'
+                //                 part_1.appendChild(partEnd)
+                //             }
+                //         }
+                //     }
+                // }
+            });
+        }
+    </script>
 </body>
 </html>
